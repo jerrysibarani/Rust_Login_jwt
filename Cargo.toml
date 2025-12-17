@@ -1,0 +1,39 @@
+[package]
+name = "login_jwt"
+version = "0.1.0"
+edition = "2024"
+
+# === Dependensi Utama ===
+[dependencies]
+# Web Framework (Axum 0.7)
+axum = { version = "0.7", features = ["macros"] }
+# Runtime asinkron (Tokio)
+tokio = { version = "1.35", features = ["full"] }
+# Serialisasi/Deserialisasi JSON
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# Variabel Lingkungan (.env)
+dotenvy = "0.15"
+
+# Database (SQLx untuk PostgreSQL)
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "macros", "time"] }
+
+# Argon2 untuk Hashing Password
+argon2 = "0.5"
+
+# JWT (JSON Web Tokens)
+jsonwebtoken = "8"
+# Waktu (digunakan untuk timestamp JWT)
+chrono = { version = "0.4", features = ["serde"] } 
+
+# === Dependensi Tambahan (Direkomendasikan) ===
+# Axum Extra (Berguna untuk Typed Headers, seperti Authorization Bearer)
+axum-extra = { version = "0.9", features = ["typed-header"] }
+# Log (Opsional, tapi sangat disarankan untuk debugging)
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+
+# === Konfigurasi Target (Opsional) ===
+# [target.'cfg(feature = "sqlite")'.dependencies]
+# sqlite-specific-crate = "0.1"
