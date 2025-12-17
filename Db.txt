@@ -4,3 +4,20 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+
+  curl --location 'http://127.0.0.1:3001/register' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "jerry",
+    "password": "passwordkuat123"
+  }'
+
+curl --location 'http://127.0.0.1:3001/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "jerry",
+    "password": "passwordkuat123"
+  }'
+
+

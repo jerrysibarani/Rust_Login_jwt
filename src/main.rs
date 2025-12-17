@@ -52,8 +52,10 @@ async fn main() {
     dotenv().ok();
 
     // 2. Inisialisasi Database Pool
-    let database_url = std::env::var("DATABASE_URL")
-        .expect("DATABASE_URL must be set in .env");
+   // let database_url = std::env::var("DATABASE_URL")
+      //  .expect("DATABASE_URL must be set in .env");
+
+    let database_url = "postgres://postgres:P@ssw0rd@localhost:5432/FDS";
 
     let pool = PgPoolOptions::new()
         .max_connections(5)
@@ -71,7 +73,7 @@ async fn main() {
         .with_state(pool);
 
     // 4. Jalankan Server menggunakan TcpListener (Axum v0.7 style)
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3001));
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     
     println!("🚀 Server berjalan di http://{}", addr);
